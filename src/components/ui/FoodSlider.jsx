@@ -47,7 +47,7 @@ export default function FoodSlider() {
                 <h1 className='text-primary hidden md:flex items-start md:text-4xl '>MENU THAT MAKES <br /> YOU FALL IN LOVE</h1>
             </div>
             {visibleSlides.map((item, index) => (
-                <div key={index} className='md:w-[220px] w-[250px] h-auto flex flex-col p-0 space-y-2  rounded-2xl shadow-2xl px-3 py-2'>
+                <div key={index} className='animate-slideIn md:w-[220px] w-[250px] h-auto flex flex-col p-0 space-y-2  rounded-2xl shadow-2xl px-3 py-2'>
                     <div className='flex flex-row items-center'>
                         <img src={item.image} className='w-40 h-40 ' />
                         <span className='text-black text-2xl'>{item.price}</span>

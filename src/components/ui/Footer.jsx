@@ -8,21 +8,21 @@ export default function Footer() {
     <section className='mt-14 mb-6'>
       <div className="border-t border-primary flex flex-col">
         <div className='py-3'>
-            <h1 className='text-center text-3xl text-primary'>FOODIE</h1>
+          <h1 className='text-center text-3xl text-primary'>FOODIE</h1>
         </div>
         <div className='flex space-x-4 items-center justify-center text-lg'>
-            <Link href='/'>Home</Link>
-            <Link href='/'>About</Link>
-            <Link href='/'>Plates</Link>
-            <Link href='/'>Reserve</Link> 
+          <Link href='#Home'> HOME</Link>
+          <Link href='#Plates'> PLATES</Link>
+          <Link href='#Reviews'> REVIEWS</Link>
+          <Link href='#Reserve'> RESERVE</Link>
         </div>
-        <div className='flex items-center justify-center text-3xl py-2 space-x-3 text-red'>
-            <CiFacebook />
-            <CiInstagram />
-            <FaWhatsapp />
+        <div className='flex items-center justify-center text-3xl py-2 space-x-6 text-red'>
+          <CiFacebook />
+          <CiInstagram />
+          <FaWhatsapp />
         </div>
       </div>
     </section>
-   
+
   )
 }

@@ -1,4 +1,5 @@
 import * as React from "react"
+import { RiDoubleQuotesL } from "react-icons/ri";
 
 import { Card, CardContent } from "@/components/ui/card"
 import {
@@ -38,8 +39,12 @@ export function Reviews() {
                     <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
                         <div className="p-1">
                             <Card>
-                                <CardContent className="flex aspect-square items-center justify-center p-6">
-                                <span className="text-center text-lg">{review}</span>
+                                <CardContent className="flex aspect-square items-center justify-center w-auto h-auto md:p-6">
+                                <div className="flex flex-col">
+                                    <span className="text-red"><RiDoubleQuotesL /></span>
+                                    <span className="text-center text-lg">{review}</span>
+                                </div>
+                                
                                 </CardContent>
                             </Card>
                         </div>
