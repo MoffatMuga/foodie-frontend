@@ -1,0 +1,52 @@
+"use client"
+import React, { useState } from 'react';
+import { dataCategory } from './DataCategory';
+
+export default function Home() {
+    // Filter out unique categories for the filter buttons
+    const categories = [...new Set(dataCategory.map(item => item.category))];
+
+    const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+
+    return (
+        <main className=" py-8">
+            <div className="flex flex-row md:space-x-20 justify-between flex-grow">
+
+                {/* Category Filters */}
+                <div className="md:w-1/4 flex flex-col space-y-4 ">
+                    {categories.map((category) => {
+                        const IconComponent = dataCategory.find(item => item.category === category)?.icon;
+                        return (
+                            <div key={category} className='space-y-4 md:rounded-full md:shadow-md py-2 px-3'>
+
+                                <button
+
+                                    onClick={() => setSelectedCategory(category)}
+                                    className="flex items-center md:justify-start  text-center"
+                                >
+                                    <IconComponent className="text-2xl md:text-3xl text-red" />
+                                    <span className="hidden md:inline-block ml-2 text-lg capitalize">{category}</span>
+                                </button>
+                            </div>
+
+                        );
+                    })}
+                </div>
+
+                {/* Selected Category Content */}
+                <div className="md:w-3/4 w-full grid md:grid-cols-3 items-center space-x-4 ">
+                    {dataCategory
+                        .filter(item => item.category === selectedCategory)
+                        .map(item => (
+                            <div key={item.id} className="mb-8 text-center bg-brown py-2 px-3 rounded-xl shadow-2xl shadow-brown/30 flex flex-col items-center md:w-auto md:h-auto">
+                                <img src={item.image} alt={item.title} className="md:w-40 md:h-40 w-20 h-20  bg-brown object-center " />
+                                <h2 className="text-2xl font-bold mt-4 bg-brown text-white">{item.title}</h2>
+                                <p className=" mt-2 bg-brown text-white">| {item.price}</p>
+                            </div>
+                        ))}
+                </div>
+
+            </div>
+        </main>
+    );
+}
