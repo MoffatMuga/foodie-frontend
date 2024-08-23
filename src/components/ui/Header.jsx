@@ -1,15 +1,32 @@
 "use client"
-import React from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation';
 import MobileNavbar from './Mobile'
 
 export default function Header() {
-  const pathname = usePathname();
+  const [activeLink, setActiveLink] = useState('');
 
-  const isActive = (hash) => pathname === hash;
+  useEffect(() => {
+    // Set the initial active link based on the current URL hash
+    setActiveLink(window.location.hash);
+
+    // Update the active link whenever the URL hash changes
+    const handleHashChange = () => {
+      setActiveLink(window.location.hash);
+    };
+
+    // Listen to the hash change event
+    window.addEventListener('hashchange', handleHashChange);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
+
+  const isActive = (hash) => activeLink === hash;
   return (
-    <div className='hidden mx-auto md:px-[170px] px-4 text-black text-center md:flex items-center py-4 justify-end w-full'>
+    <div className='hidden mx-auto md:px-[170px] px-4 text-black text-center md:flex items-center py-4 justify-end w-full  '>
 
 
       <div className='space-x-8 text-xl'>

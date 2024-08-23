@@ -24,7 +24,7 @@ export function Reviews() {
         <div className="flex flex-col md:flex-row justify-between">
 
             <div className="md:w-1/2 items-center py-3 px-8 border-l-[10px]">
-                <p className="text-secondary">
+                <p className="text-black">
                 Discover what our community is saying by visiting our Reviews section! Whether you're looking for the best dishes, top-rated restaurants, or hidden culinary gems, our reviews offer insights and recommendations from fellow food lovers. Your next great meal could be just a click away—read our reviews and join the conversation to make your dining experience even more delightful!
                 </p>
             </div>
@@ -38,11 +38,11 @@ export function Reviews() {
             {reviews.map((review, index) => (
                     <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
                         <div className="p-1">
-                            <Card>
-                                <CardContent className="flex aspect-square items-center justify-center w-auto h-auto md:p-6">
-                                <div className="flex flex-col">
-                                    <span className="text-red"><RiDoubleQuotesL /></span>
-                                    <span className="text-center text-lg">{review}</span>
+                            <Card className='bg-white'>
+                                <CardContent className="flex aspect-square items-center justify-center w-auto h-auto md:p-6 bg-white">
+                                <div className="flex flex-col bg-white">
+                                    <span className="text-red bg-white"><RiDoubleQuotesL /></span>
+                                    <span className="text-center text-lg bg-white">{review}</span>
                                 </div>
                                 
                                 </CardContent>

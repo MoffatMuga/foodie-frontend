@@ -8,13 +8,14 @@ import { Reviews } from "@/components/ui/Reviews";
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { useEffect } from "react";
+import Link from "next/link";
 
 
 
 export default function Home() {
 
   useEffect(() => {
-    AOS.init({ duration: 1200 })
+    AOS.init({ duration: 1000 })
   })
   return (
     <main className='container mx-auto px-4 md:px-[100px] lg:px-[170px] relative overflow-x-hidden' id="Home">
@@ -23,18 +24,21 @@ export default function Home() {
         <div className='flex justify-center md:w-2/3  flex-col gap-6 ' data-aos="fade-right">
           <h1 className='text-black text-7xl text-center md:text-start text-primary'>Welcome to Foodie</h1>
           <h1 className='text-black text-5xl text-center md:text-start text-red'>Delicious</h1>
-          <p className=' text-lg text-secondary text-center md:text-start'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio potenti morbi accumsan, convallis ultricies diam auctor. Est augue velit pulvinar ultrices orci, dapibus ultrices morbi. .</p>
+          <p className=' text-lg text-black text-center md:text-start'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio potenti morbi accumsan, convallis ultricies diam auctor. Est augue velit pulvinar ultrices orci, dapibus ultrices morbi. .</p>
 
           <div className='flex justify-center md:justify-start w-full' data-aos="fade-up-right">
             <button className='text-white text-lg px-8 items-center py-2 border bg-black rounded-tr-2xl rounded-br-2xl rounded-tl-2xl '>
-              Reserve
+              <Link href='#Reserve' className="bg-transparent">
+                Reserve
+              </Link>
+
             </button >
 
 
           </div>
         </div>
 
-        <div className=' top-0 items-center md:w-[400px] md:h-[500px] h-[600px] rounded-b-full bg-black flex flex-col gap-10 py-4 shadow-2xl sm:w-full sm:mt-4'>
+        <div className=' top-0 items-center md:w-[400px] md:h-[500px] h-[600px] rounded-b-full bg-black flex flex-col gap-10 py-4 md:shadow-2xl sm:w-full sm:mt-4'>
           <div className='bg-black flex ' data-aos="fade-down">
             <h1 className='text-white text-5xl bg-black text-center md:mb-10 mb-[120px]'>FOODIE</h1>
 
@@ -75,7 +79,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className='mt-6 md:mb-6 mb-14'>
+      <section className='mt-6 md:mb-6 mb-6'>
         <div>
           <Footer />
         </div>

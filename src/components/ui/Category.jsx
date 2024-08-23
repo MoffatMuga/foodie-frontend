@@ -1,9 +1,16 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { dataCategory } from './DataCategory';
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 
 export default function Home() {
     // Filter out unique categories for the filter buttons
+
+    useEffect(() => {
+        AOS.init({ duration: 1000 })
+      })
     const categories = [...new Set(dataCategory.map(item => item.category))];
 
     const [selectedCategory, setSelectedCategory] = useState(categories[0]);
@@ -13,19 +20,19 @@ export default function Home() {
             <div className="flex flex-row md:space-x-20 justify-between flex-grow">
 
                 {/* Category Filters */}
-                <div className="md:w-1/4 flex flex-col space-y-4 ">
+                <div className="md:w-1/4 flex flex-col space-y-4 " data-aos="fade-right">
                     {categories.map((category) => {
                         const IconComponent = dataCategory.find(item => item.category === category)?.icon;
                         return (
-                            <div key={category} className='space-y-4 md:rounded-full md:shadow-md py-2 px-3'>
+                            <div key={category} className='space-y-4 md:rounded-full md:shadow-md py-2 px-3 bg-white'>
 
                                 <button
 
                                     onClick={() => setSelectedCategory(category)}
-                                    className="flex items-center md:justify-start  text-center"
+                                    className="flex items-center md:justify-start bg-white text-center"
                                 >
                                     <IconComponent className="text-2xl md:text-3xl text-red" />
-                                    <span className="hidden md:inline-block ml-2 text-lg capitalize">{category}</span>
+                                    <span className="hidden md:inline-block ml-2 text-lg capitalize bg-white">{category}</span>
                                 </button>
                             </div>
 
@@ -34,7 +41,7 @@ export default function Home() {
                 </div>
 
                 {/* Selected Category Content */}
-                <div className="md:w-3/4 w-full grid md:grid-cols-3 items-center space-x-4 ">
+                <div className="md:w-3/4 w-full grid md:grid-cols-3 items-center space-x-4 " data-aos="fade-left">
                     {dataCategory
                         .filter(item => item.category === selectedCategory)
                         .map(item => (

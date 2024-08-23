@@ -36,6 +36,16 @@ export default function FoodSlider() {
         return () => window.removeEventListener('resize', handleResize)
     }, [])
 
+    useEffect(() => {
+        const timer = setInterval(() => {
+            nextSlide();
+        }, 5000);
+        return () => {
+            clearInterval(timer);
+        };
+    }, [currentPage]);
+
+
     const start = currentPage * slidesToShow
     const end = start + slidesToShow
     const visibleSlides = divData.slice(start, end)
@@ -47,17 +57,17 @@ export default function FoodSlider() {
                 <h1 className='text-primary hidden md:flex items-start md:text-4xl '>MENU THAT MAKES <br /> YOU FALL IN LOVE</h1>
             </div>
             {visibleSlides.map((item, index) => (
-                <div key={index} className='animate-slideIn md:w-[220px] w-[250px] h-auto flex flex-col p-0 space-y-2  rounded-2xl shadow-2xl px-3 py-2'>
-                    <div className='flex flex-row items-center'>
-                        <img src={item.image} className='w-40 h-40 ' />
-                        <span className='text-black text-2xl'>{item.price}</span>
+                <div key={index} className='animate-slideIn md:w-[220px] w-[250px] h-auto flex flex-col p-0 space-y-2  rounded-2xl bg-white shadow-2xl px-3 py-2'>
+                    <div className='flex flex-row items-center bg-white'>
+                        <img src={item.image} className='w-40 bg-white h-40 ' />
+                        <span className='text-black text-2xl bg-white'>{item.price}</span>
                     </div>
-                    <h1 className='text-primary text-2xl'>{item.title}</h1>
-                    <p className='text-black'>{item.prepTime}</p>
+                    <h1 className='text-primary text-2xl bg-white'>{item.title}</h1>
+                    <p className='text-black bg-white'>{item.prepTime}</p>
                 </div>
             ))}
 
-            <div className="mt-[280px] absolute items-bottom">
+            <div className="mt-[280px] absolute items-bottom bg-transparent">
                 {Array.from({ length: Math.ceil(divData.length / slidesToShow) }).map((_, index) => (
                     <span
                         key={index}

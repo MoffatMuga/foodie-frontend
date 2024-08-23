@@ -5,7 +5,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <section className='mt-14 mb-6'>
+    <section className='mt-14 mb-2'>
       <div className="border-t border-primary flex flex-col">
         <div className='py-3'>
           <h1 className='text-center text-3xl text-primary'>FOODIE</h1>
