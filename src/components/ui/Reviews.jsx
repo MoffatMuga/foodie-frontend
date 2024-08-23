@@ -21,7 +21,7 @@ export function Reviews() {
     ];
 
     return (
-        <div className="flex flex-col md:flex-row justify-between">
+        <div className="flex flex-col gap-10 md:flex-row justify-between">
 
             <div className="md:w-1/2 items-center py-3 px-8 border-l-[10px]">
                 <p className="text-black">

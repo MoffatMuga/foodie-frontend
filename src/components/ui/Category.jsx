@@ -20,16 +20,16 @@ export default function Home() {
             <div className="flex flex-row md:space-x-20 justify-between flex-grow">
 
                 {/* Category Filters */}
-                <div className="md:w-1/4 flex flex-col space-y-4 " data-aos="fade-right">
+                <div className="md:w-1/4 flex gap-1 space-x-1 flex-col space-y-4 " data-aos="fade-right">
                     {categories.map((category) => {
                         const IconComponent = dataCategory.find(item => item.category === category)?.icon;
                         return (
-                            <div key={category} className='space-y-4 md:rounded-full md:shadow-md py-2 px-3 bg-white'>
+                            <div key={category} className='space-y-4 md:rounded-full h-10 w-10 rounded-full shadow-xl md:shadow-md py-2 px-3 bg-white justify-center flex'>
 
                                 <button
 
                                     onClick={() => setSelectedCategory(category)}
-                                    className="flex items-center md:justify-start bg-white text-center"
+                                    className="flex items-center md:justify-start bg-white text-center bg-white"
                                 >
                                     <IconComponent className="text-2xl md:text-3xl text-red" />
                                     <span className="hidden md:inline-block ml-2 text-lg capitalize bg-white">{category}</span>
