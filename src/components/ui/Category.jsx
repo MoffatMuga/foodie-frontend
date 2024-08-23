@@ -10,7 +10,7 @@ export default function Home() {
 
     useEffect(() => {
         AOS.init({ duration: 1000 })
-      })
+    })
     const categories = [...new Set(dataCategory.map(item => item.category))];
 
     const [selectedCategory, setSelectedCategory] = useState(categories[0]);
@@ -24,7 +24,7 @@ export default function Home() {
                     {categories.map((category) => {
                         const IconComponent = dataCategory.find(item => item.category === category)?.icon;
                         return (
-                            <div key={category} className='space-y-4 md:rounded-full h-10 w-10 rounded-full shadow-xl md:shadow-md py-2 px-3 bg-white justify-center flex'>
+                            <div key={category} className='space-y-4 md:rounded-full  rounded-full shadow-xl md:shadow-md py-2 px-3 bg-white justify-center flex'>
 
                                 <button
 
